@@ -1,0 +1,19 @@
+{
+  "name": "youtubepl",
+  "version": "1.0.0",
+  "description": "1. Create react app. 2. Build the ui. 3. Add / Remove songs. 4. Play songs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YakyRef/YouTubePL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YakyRef/YouTubePL/issues"
+  },
+  "homepage": "https://github.com/YakyRef/YouTubePL#readme"
+}
