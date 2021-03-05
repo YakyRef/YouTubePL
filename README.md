@@ -15,8 +15,6 @@
 9. Sync with ract state.  
 <br/>
 <br/>
-##
-
 ---
 <br/>
 
