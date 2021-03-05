@@ -1,3 +1,4 @@
+# YouTube playlist application (with react & firebase)
 ## Front End
 1. Create react app.
 2. Build the ui.
@@ -11,7 +12,14 @@
 
 ## Syc Front & Back
 8. Connect firebase app to react application.
-9. Sync with ract state.
+9. Sync with ract state.  
+<br/>
+<br/>
+##
+
+---
+<br/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
