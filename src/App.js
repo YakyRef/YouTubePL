@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Player from './components/player/Player';
 import './App.scss';
 
 function App() {
-  const [searchValue, updateSearch] = useState('ss')
+  const [searchValue, updateSearch] = useState('')
   const [playlist, updatePlaylist] = useState([
     {
       title: "HOSH at Jai Vilas Palace in Gwalior, India for Cercle",
@@ -17,6 +18,7 @@ function App() {
     const reducedList = playlist.splice(1)
     updatePlaylist(reducedList)
   }
+  
   return (
     <div className="container">
       <div className="container__list_pannel">
@@ -35,7 +37,9 @@ function App() {
         </ul>
 
       </div>
-      <div className="container__video_pannel">container__video_pannel</div>
+      <div className="container__video_pannel">
+        <Player video={playlist[0]}/>
+      </div>
     </div>
   );
 }
