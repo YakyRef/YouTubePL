@@ -1,3 +1,17 @@
+## Front End
+1. Create react app.
+2. Build the ui.
+3. Add / Remove songs.
+4. Play songs automaticly.
+
+## Back end (serverless)
+5. Create firebase account.
+6. Connect to firebase app (authentication).
+7. Create playlist collection.
+
+## Syc Front & Back
+8. Connect firebase app to react application.
+9. Sync with ract state.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
