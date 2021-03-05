@@ -15,20 +15,20 @@ function App() {
   ]);
   const addSong = () => {
     // get the video id from th url
-    const newSong = qs.parse(searchValue.split('?')[1])?.v;
-
-    if (!newSong) {
+    const newSongId = qs.parse(searchValue.split('?')[1])?.v;
+    if (!newSongId) {
       setError('Please enter valid video url..')
       return
     }
-    updatePlaylist([...playlist, { title: "", url: searchValue }])
+    updatePlaylist([...playlist, { id: newSongId, title: "", url: searchValue }])
     updateSearch('')
+    setError('')
   }
   const removeFirstSong = () => {
     const reducedList = playlist.splice(1)
     updatePlaylist(reducedList)
   }
-
+ 
   return (
     <div className="container">
       <div className="container__list_pannel">
@@ -36,7 +36,7 @@ function App() {
         <div className="container__list_pannel__searchbar">
           <input type="text" value={searchValue} onChange={(e) => updateSearch(e.target.value)} />
           <button onClick={addSong}>Add</button>
-          <button onClick={removeFirstSong}>Remove</button>
+          <button onClick={removeFirstSong}>Next</button>
         </div>
         {error && <div className="container__error">{error}</div>}
         <ul className="container__list_pannel__songs">
@@ -48,7 +48,9 @@ function App() {
 
       </div>
       <div className="container__video_pannel">
-        <Player video={playlist[0]} />
+        {playlist?.length>0 &&
+          <Player video={playlist[0]} onFinishVideo={removeFirstSong} />
+        }
       </div>
     </div>
   );

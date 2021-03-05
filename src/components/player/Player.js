@@ -1,6 +1,6 @@
 import YouTube from 'react-youtube';
 
-function Player({video}) {
+function Player({video, onFinishVideo}) {
     const opts = {
         height: '390',
         width: '640',
@@ -9,12 +9,14 @@ function Player({video}) {
         },
       };
       const onReady = (event) => {
-        event.target.pauseVideo();
+        event.target.playVideo();
+      }
+      const onEnd = (event) => {
+        onFinishVideo()
       }
     return (
       <>
-        <p>You clicked {JSON.stringify(video)} times</p>
-        <YouTube videoId={video.id} opts={opts} onReady={onReady} />
+        <YouTube videoId={video.id} opts={opts} onReady={onReady} onEnd={onEnd} />
       </>
     );
   }
