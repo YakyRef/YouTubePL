@@ -14,7 +14,7 @@ function Player({video}) {
     return (
       <>
         <p>You clicked {JSON.stringify(video)} times</p>
-        <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={onReady} />
+        <YouTube videoId={video.id} opts={opts} onReady={onReady} />
       </>
     );
   }
