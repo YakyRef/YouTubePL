@@ -1,18 +1,30 @@
-@import './components/sign-in/style.scss';
+@import "./components/sign-in/style.scss";
 
 .container {
   font-size: 16px;
   padding: 2em;
   display: flex;
   flex-direction: row;
-  &__list_pannel {
-    padding: 2em;
+  &__list_pannel {    
+    &__searchbar {
+      margin:0 0 2em 0 ;
+      &__input{
+        margin-bottom: 1em;
+      }
+      &__add {
+        margin-right: 1em;
+      }
+    }
+    &__videos{
+      margin-top: 2em;
+    }
   }
   &__video_pannel {
+    margin-left: 4em;
     padding: 2em;
-    background-color: rosybrown;
-  }
-  &__error{
-    color: red;
-  }
+    border: 1px solid rgb(213, 221, 232);   
+  }  
+}
+.site-page-header {
+  border: 1px solid rgb(235, 237, 240);
 }

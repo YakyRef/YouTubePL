@@ -6,7 +6,7 @@ import { auth } from './firebase';
 import { addVideoToDb, getPlaylistFromDb } from './helpers/db';
 import SignIn from './components/sign-in/SignIn';
 import SignOut from './components/sign-out/SignOut';
-import { PageHeader } from 'antd';
+import { PageHeader, Input, Button, Alert, List } from 'antd';
 import 'antd/dist/antd.css';
 import './App.scss';
 
@@ -50,21 +50,35 @@ function App() {
     <>
       { !user ? <SignIn auth={auth} /> :
         <>
-          <PageHeader><SignOut auth={auth} /></PageHeader>
+          <PageHeader className="site-page-header"><SignOut auth={auth} /></PageHeader>
           <div className="container">
             <div className="container__list_pannel">
               <div className="container__list_pannel__searchbar">
-                <input type="text" value={searchValue} onChange={(e) => updateSearch(e.target.value)} />
-                <button onClick={addVideo}>Add</button>
-                <button onClick={removeFirstSong}>Next</button>
+                <Input
+                  type="text"
+                  className="container__list_pannel__searchbar__input"
+                  value={searchValue}
+                  onChange={(e) => updateSearch(e.target.value)}
+                  size="large"
+                  placeholder="Add url"
+                />
+                <Button className="container__list_pannel__searchbar__add" onClick={addVideo}>Add</Button>
+                <Button className="container__list_pannel__searchbar__remove" onClick={removeFirstSong}>Next</Button>
               </div>
-              {error && <div className="container__error">{error}</div>}
-              <ul className="container__list_pannel__songs">
+              {error && <Alert message={error} type="error" />}
+              <div className="container__list_pannel__videos">
                 {playlist.length ?
-                  playlist.map((song, i) => <li key={i}>{song.url}</li>) :
+                  <List
+                    header={<div>Playlist :</div>}
+                    bordered
+                    dataSource={playlist}
+                    renderItem={item => (
+                      <List.Item> {item.url} </List.Item>
+                    )}
+                  /> :
                   <li>empty list</li>
                 }
-              </ul>
+              </div>
             </div>
             <div className="container__video_pannel">
               {playlist?.length > 0 &&
