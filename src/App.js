@@ -34,7 +34,7 @@ function App() {
       return
     }
     const currentDateTime = new Date()
-    const newVideoData = { id: newVideoId, title: "", url: searchValue, updatedAt: currentDateTime, order: playlist.length }
+    const newVideoData = { vid: newVideoId, title: "", url: searchValue, updatedAt: currentDateTime}
     updatePlaylist([...playlist, newVideoData])
     addVideoToDb(newVideoData)
     updateSearch('')
