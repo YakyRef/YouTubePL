@@ -16,7 +16,7 @@ function Player({video, onFinishVideo}) {
       }
     return (
       <>
-        <YouTube videoId={video.id} opts={opts} onReady={onReady} onEnd={onEnd} />
+        <YouTube videoId={video.vid} opts={opts} onReady={onReady} onEnd={onEnd} />
       </>
     );
   }
