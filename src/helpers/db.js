@@ -22,7 +22,6 @@ export const getPlaylistFromDb = firestore.collection("playlist")
     });
 
 export const removeVideoFromDb = (id) => {
-    console.log(id)
     firestore.collection("playlist").doc(id).delete().then(() => {
         console.log("Document successfully deleted!");
     }).catch((error) => {

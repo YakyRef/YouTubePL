@@ -63,8 +63,13 @@ function App() {
                   size="large"
                   placeholder="Add url"
                 />
-                <Button className="container__list_pannel__searchbar__add" onClick={addVideo}>Add</Button>
-                <Button className="container__list_pannel__searchbar__remove" onClick={removeFirstSong}>Next</Button>
+                <Button 
+                className="container__list_pannel__searchbar__add" 
+                onClick={addVideo}>Add</Button>
+                <Button 
+                className="container__list_pannel__searchbar__remove" 
+                disabled={!playlist.length}
+                onClick={removeFirstSong}>Next</Button>
               </div>
               {error && <Alert message={error} type="error" />}
               <div className="container__list_pannel__videos">
