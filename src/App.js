@@ -76,7 +76,7 @@ function App() {
                       <List.Item> {item.url} </List.Item>
                     )}
                   /> :
-                  <li>empty list</li>
+                  <Alert message={"Empty playlist. please add some videos urls"} type="info" />
                 }
               </div>
             </div>
