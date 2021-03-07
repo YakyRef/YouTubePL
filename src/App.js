@@ -64,6 +64,7 @@ function App() {
                   placeholder="Add url"
                 />
                 <Button 
+                type="primary"
                 className="container__list_pannel__searchbar__add" 
                 onClick={addVideo}>Add</Button>
                 <Button 
