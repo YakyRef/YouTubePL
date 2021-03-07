@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import Player from './components/player/Player';
 import qs from "qs";
 import { auth } from './firebase';
-import { addVideoToDb, getPlaylistFromDb } from './helpers/db';
+import { addVideoToDb, getPlaylistFromDb, removeVideoFromDb } from './helpers/db';
 import SignIn from './components/sign-in/SignIn';
 import SignOut from './components/sign-out/SignOut';
 import { PageHeader, Input, Button, Alert, List } from 'antd';
@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 import './App.scss';
 
 function App() {
-
+  
   const [user] = useAuthState(auth)
   const [searchValue, updateSearch] = useState('')
   const [error, setError] = useState('')
@@ -34,14 +34,15 @@ function App() {
       return
     }
     const currentDateTime = new Date()
-    const newVideoData = { vid: newVideoId, title: "", url: searchValue, updatedAt: currentDateTime}
+    const newVideoData = { vid: newVideoId, title: "", url: searchValue, updatedAt: currentDateTime }
+    addVideoToDb(newVideoData, (res) => { newVideoData["id"] = res });
     updatePlaylist([...playlist, newVideoData])
-    addVideoToDb(newVideoData)
     updateSearch('')
     setError('')
   }
 
   const removeFirstSong = () => {
+    removeVideoFromDb(playlist[0].id)
     const reducedList = playlist.splice(1)
     updatePlaylist(reducedList)
   }
